@@ -18,13 +18,12 @@ IUSE=""
 
 DEPEND="sys-libs/pam"
 RDEPEND="${DEPEND}
-	 net-misc/tigervnc"
+	 net-misc/tigervnc[server]"
 
 S="${WORKDIR}/${MY_P}"
 DESTDIR="/usr/$(get_libdir)/${PN}"
 
 src_prepare() {
-#	epatch "${FILESDIR}/${PN}-0.4.1-curdir.patch"
 	eautoreconf
 	cd sesman/tools && ln -vs ../config.c .; cd -
 	default
